@@ -41,26 +41,6 @@ def get_credentials():
     return username, token, trello_username
 
 
-def edit_preferences():
-    filename = "preferences.csv"
-    if os.path.isfile(filename):
-        preferences = {}
-        with open(filename, "r") as f:
-            lines = f.readlines()
-            for line in lines:
-                key_data = line.split(',')
-                preferences[key_data[0]] = re.search('[^\n]*',
-                                                     key_data[1]).group()
-        deadline_days = preferences['deadline_days']
-    else:
-        deadline_days = input('Please enter how many days in advance of a '
-                              'deadline you want to be prompted for a task.: ')
-        with open(filename, "w") as f:
-            line = "deadline_days,"+deadline_days + '\n'
-            f.write(line)
-    return deadline_days
-
-
 def prompt_for_task():
     location = input('Are you at Home, Work, or Out? ')
     while location not in ['Home', 'Work', 'Out']:
