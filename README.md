@@ -1,5 +1,5 @@
 # Todolist-fatigue-begone
-This simple text-based tool uses a trello to do list to serve up tasks to the user based on how much time and what type of energy they have. I built this as one of my first python projects to help combat decision fatigue -- left to my own devices with my leisure time, it's easy for me to overthink what I could/should be doing with my time. I've primarily built this for personal use, so there's some requirements around trello board setup that may be relaxed if there's interest.
+This simple text-based tool uses a user-curated trello board to serve up tasks to the user based on how much time and what type of energy they have. I built this as one of my first python projects to help combat decision fatigue -- left to my own devices with my leisure time, it's easy for me to overthink what I could/should be doing with my time. I've primarily built this for personal use, so there's some requirements around trello board setup that may be relaxed if there's interest.
 
 # Requires
 packages: trello
