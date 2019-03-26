@@ -43,15 +43,18 @@ def get_credentials():
 
 def prompt_for_task():
     location = input('Are you at Home, Work, or Out? ')
+    location = location.capitalize()
     while location not in ['Home', 'Work', 'Out']:
         print("\nI'm sorry. I didn't understand your answer.")
         location = input('Are you at Home, Work, or Out? ')
     time = input('What size task do you have time for (xs, s, m, l, xl, any)?')
-    while time.lower() not in ['xs', 's', 'm', 'l', 'xl', 'any']:
+    time = time.lower()
+    while time not in ['xs', 's', 'm', 'l', 'xl', 'any']:
         print("\nI'm sorry. I didn't understand your answer.")
         time = input('What size task do you have time for (xs, s, m, l, xl, '
                      'any)? ')
     energy = input('Do you have Mental, Physical, Creative, or Social energy?')
+    energy = energy.capitalize()
     while energy not in ['Social', 'Mental', 'Physical', 'Creative']:
         print("I'm sorry. I didn't understand your answer.")
         energy = input('Do you have Mental, Physical, Creative, or Social '
