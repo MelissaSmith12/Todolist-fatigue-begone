@@ -84,6 +84,14 @@ def load_stats(name):
 
 def make_active_done(active_card, name, total_tasks, daily_tasks, start_time,
                      list_dict, trello):
+    messages = {
+                1: "Way to go, ass kicker!",
+                2: "You slayed that task, " + name + "!",
+                3: name + ", truly you are mighty and wise.",
+                4: "Behold! It is " + name + ", Slayer of Tasks. Mightiest of "
+                   "To-Doers.",
+                5: "What? You're done already?"
+                }
     recurring = False
     active_labels = active_card['labels']
     for label in active_labels:
@@ -98,18 +106,8 @@ def make_active_done(active_card, name, total_tasks, daily_tasks, start_time,
             trello.cards.new_label(new_card['id'], label['color'])
     trello.cards.update(active_card['id'], idList=list_dict['Done'])
     end_time = datetime.datetime.now()
-    message_number = random.randint(1, 5)
-    if message_number == 1:
-        print("Way to go, ass kicker!")
-    elif message_number == 2:
-        print("You slayed that task, " + name + "!")
-    elif message_number == 3:
-        print(name + ", truly you are mighty and wise.")
-    elif message_number == 4:
-        print("Behold! It is " + name + ", Slayer of Tasks. Mightiest of "
-              "To-Doers.")
-    elif message_number == 5:
-        print("What? You're done already?")
+    message_number = random.randint(1, len(messages))
+    print(message[message_number])
     total_tasks, daily_tasks = increase_stats(total_tasks, daily_tasks)
     print("")
     print("That task took " + str(end_time - start_time) + " minutes to "
@@ -177,7 +175,7 @@ def pick_new_board(my_boards, pick_type):
             try:
                 board_menu_pick = int(input("Please enter the board number: "))
                 if board_menu_pick > len(my_boards):
-                    print("I'm sorry, your entry either wasn't a number or
+                    print("I'm sorry, your entry either wasn't a number or"
                           "didn't match a board. ")
                 else:
                     board_select = True
